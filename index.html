@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prima Design Interior — Studio de Design Premium</title>
+  <meta name="description" content="Prima Design Interior — studio de design interior premium din Chișinău. Transformăm spații în experiențe unice, de la concept la execuție." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest:       '#0C1A0C',
+            'forest-mid': '#122012',
+            'forest-light':'#1A2E1A',
+            cream:        '#F7F3EC',
+            'cream-dark': '#EDE7DC',
+            gold:         '#C5A55A',
+            'gold-light': '#D4BC80',
+            charcoal:     '#1A1A1A',
+            'warm-gray':  '#8A7E72',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body:    ['Jost', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    :root {
+      --gold:   #C5A55A;
+      --forest: #0C1A0C;
+      --cream:  #F7F3EC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      overflow-x: hidden;
+    }
+
+    /* ── Scroll animations ── */
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+      opacity: 0;
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .reveal       { transform: translateY(36px); }
+    .reveal-left  { transform: translateX(-36px); }
+    .reveal-right { transform: translateX(36px); }
+
+    .reveal.visible,
+    .reveal-left.visible,
+    .reveal-right.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .d1 { transition-delay: 0.10s; }
+    .d2 { transition-delay: 0.20s; }
+    .d3 { transition-delay: 0.32s; }
+    .d4 { transition-delay: 0.44s; }
+
+    /* ── Navbar ── */
+    #navbar {
+      transition: background 0.45s ease, backdrop-filter 0.45s ease, box-shadow 0.45s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(12, 26, 12, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 40px rgba(0,0,0,0.35);
+    }
+
+    /* Gold underline nav links */
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── Hero keyframes ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes scrollPulse {
+      0%   { transform: translateY(-100%); opacity: 0; }
+      40%  { opacity: 1; }
+      100% { transform: translateY(200%); opacity: 0; }
+    }
+
+    .hero-word {
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    /* ── Portfolio ── */
+    .port-item { overflow: hidden; cursor: pointer; }
+    .port-item img    { transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .port-item:hover img { transform: scale(1.06); }
+    .port-item .cap {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .port-item:hover .cap { opacity: 1; }
+
+    /* ── Service card ── */
+    .svc-card {
+      position: relative;
+      border: 1px solid rgba(197,165,90,0.12);
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(197,165,90,0.07) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .svc-card:hover::before { opacity: 1; }
+    .svc-card:hover { border-color: rgba(197,165,90,0.35); }
+
+    .svc-bar {
+      height: 1px;
+      background: var(--gold);
+      width: 32px;
+      transition: width 0.4s ease;
+    }
+    .svc-card:hover .svc-bar { width: 64px; }
+
+    /* ── Form ── */
+    .f-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(197,165,90,0.3);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      padding: 12px 0;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    .f-input:focus { border-color: var(--gold); }
+    .f-input::placeholder { color: rgba(247,243,236,0.38); }
+    .f-input option { background: #0C1A0C; }
+
+    /* ── Counter ── */
+    .ctr {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      font-size: clamp(3rem, 5.5vw, 5rem);
+    }
+
+    /* ── Mobile menu ── */
+    #mob-menu {
+      transform: translateX(100%);
+      transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+    }
+    #mob-menu.open { transform: none; }
+
+    /* ── Gold divider ── */
+    .g-line {
+      display: block;
+      width: 56px; height: 1px;
+      background: var(--gold);
+    }
+
+    /* ── Section label ── */
+    .s-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Subtle grain on page ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 9000;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.022;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--forest); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* Submit shimmer */
+    .btn-submit {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-submit::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: skewX(-15deg);
+      transition: left 0.6s ease;
+    }
+    .btn-submit:hover::after { left: 160%; }
+
+    /* Full-bleed image hover lift */
+    .img-lift { transition: transform 0.55s ease; }
+    .img-lift:hover { transform: scale(1.015); }
+
+    /* Process number */
+    .proc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      font-weight: 300;
+      line-height: 1;
+      color: rgba(197,165,90,0.13);
+      transition: color 0.4s ease;
+    }
+    .proc-card:hover .proc-num { color: rgba(197,165,90,0.28); }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 py-5 px-6 lg:px-14">
+  <div class="max-w-screen-xl mx-auto flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 group flex-shrink-0">
+      <div class="w-11 h-11 rounded-full overflow-hidden ring-1 ring-gold/25 group-hover:ring-gold/55 transition-all duration-300">
+        <img src="img/logo.jpg" alt="Prima Design" class="w-full h-full object-cover" />
+      </div>
+      <div class="hidden sm:block leading-tight">
+        <div class="font-display text-cream text-[1.1rem] font-light tracking-wide">Prima Design</div>
+        <div class="s-label text-[9px] mt-0.5">Interior</div>
+      </div>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden lg:flex items-center gap-8">
+      <li><a href="#about"     class="nav-link font-body text-cream/75 hover:text-cream text-[11.5px] tracking-[0.22em] uppercase font-light transition-colors">Despre</a></li>
+      <li><a href="#services"  class="nav-link font-body text-cream/75 hover:text-cream text-[11.5px] tracking-[0.22em] uppercase font-light transition-colors">Servicii</a></li>
+      <li><a href="#portfolio" class="nav-link font-body text-cream/75 hover:text-cream text-[11.5px] tracking-[0.22em] uppercase font-light transition-colors">Portofoliu</a></li>
+      <li><a href="#process"   class="nav-link font-body text-cream/75 hover:text-cream text-[11.5px] tracking-[0.22em] uppercase font-light transition-colors">Proces</a></li>
+      <li><a href="#contact"   class="nav-link font-body text-cream/75 hover:text-cream text-[11.5px] tracking-[0.22em] uppercase font-light transition-colors">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="hidden lg:block font-body text-[10.5px] tracking-[0.24em] uppercase px-7 py-3 border border-gold text-gold hover:bg-gold hover:text-forest transition-all duration-300 font-medium">
+      Consultație
+    </a>
+
+    <!-- Hamburger -->
+    <button id="ham-btn" class="lg:hidden p-2 flex flex-col gap-[5px]" aria-label="Meniu">
+      <span id="hb1" class="block w-6 h-px bg-cream transition-all duration-300 origin-center"></span>
+      <span id="hb2" class="block w-4 h-px bg-gold  transition-all duration-300"></span>
+      <span id="hb3" class="block w-6 h-px bg-cream transition-all duration-300 origin-center"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mob-menu" class="fixed inset-0 z-40 bg-forest flex flex-col items-center justify-center gap-7">
+  <a href="#about"     class="mob-link font-display text-cream text-4xl font-light hover:text-gold transition-colors">Despre</a>
+  <a href="#services"  class="mob-link font-display text-cream text-4xl font-light hover:text-gold transition-colors">Servicii</a>
+  <a href="#portfolio" class="mob-link font-display text-cream text-4xl font-light hover:text-gold transition-colors">Portofoliu</a>
+  <a href="#process"   class="mob-link font-display text-cream text-4xl font-light hover:text-gold transition-colors">Proces</a>
+  <a href="#contact"   class="mob-link font-display text-cream text-4xl font-light hover:text-gold transition-colors">Contact</a>
+  <span class="g-line mt-4"></span>
+  <p class="s-label text-[9px] mt-1">Prima Design Interior</p>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="relative min-h-screen flex items-end pb-20 overflow-hidden">
+
+  <!-- BG image -->
+  <div class="absolute inset-0">
+    <img
+      src="img/SaveClip.App_700379508_17880946425576209_1141927870291486815_n.jpg"
+      alt="Prima Design Interior — living room"
+      class="w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t  from-forest via-forest/55 to-forest/15"></div>
+    <div class="absolute inset-0 bg-gradient-to-r  from-forest/65 via-forest/20 to-transparent"></div>
+  </div>
+
+  <!-- Thin vertical gold accents -->
+  <div class="absolute top-0 bottom-0 right-[30%] w-px bg-gradient-to-b from-transparent via-gold/20 to-transparent pointer-events-none"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-screen-xl mx-auto px-6 lg:px-14">
+    <div class="max-w-2xl">
+      <div class="hero-word s-label mb-6" style="animation-delay:0.3s">Studio de Design Interior · Chișinău</div>
+
+      <h1 class="font-display text-cream font-light leading-[0.93]" style="font-size:clamp(3.4rem,8.5vw,7.5rem);">
+        <span class="hero-word block" style="animation-delay:0.45s">Unde</span>
+        <span class="hero-word block italic text-gold-light" style="animation-delay:0.58s">Viziunea</span>
+        <span class="hero-word block" style="animation-delay:0.71s">Întâlnește</span>
+        <span class="hero-word block" style="animation-delay:0.84s">Măiestria</span>
+      </h1>
+
+      <p class="hero-word font-body text-cream/65 font-light leading-relaxed mt-8 mb-10 max-w-sm"
+         style="animation-delay:1s; font-size:clamp(0.88rem,1.4vw,1rem);">
+        Transformăm spații în experiențe unice. Design interior de lux, adaptat fiecărui client în fiecare detaliu.
+      </p>
+
+      <div class="hero-word flex flex-wrap gap-4" style="animation-delay:1.15s">
+        <a href="#portfolio" class="font-body text-[10.5px] tracking-[0.25em] uppercase px-8 py-4 bg-gold text-forest hover:bg-gold-light transition-all duration-300 font-medium">
+          Proiectele Noastre
+        </a>
+        <a href="#contact" class="font-body text-[10.5px] tracking-[0.25em] uppercase px-8 py-4 border border-cream/30 text-cream hover:border-cream/70 transition-all duration-300 font-light">
+          Consultație Gratuită
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 right-10 lg:right-16 flex flex-col items-center gap-2 select-none">
+    <span class="font-body text-cream/35 text-[9px] tracking-[0.35em] uppercase [writing-mode:vertical-rl]">Scroll</span>
+    <div class="w-px h-14 overflow-hidden relative">
+      <div class="absolute inset-x-0 top-0 h-full bg-gold/70" style="animation: scrollPulse 2.2s ease-in-out infinite;"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     EDITORIAL QUOTE
+════════════════════════════════════════════ -->
+<section class="py-24 bg-cream overflow-hidden">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="reveal">
+      <p class="font-display text-charcoal font-light leading-tight"
+         style="font-size:clamp(1.7rem,3.8vw,3.1rem);">
+        Fiecare spațiu are o poveste —<br />
+        <em class="text-gold">noi o scriem</em> cu grijă, precizie și pasiune.
+      </p>
+    </div>
+    <div class="reveal d2 flex justify-center mt-9">
+      <span class="g-line"></span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════ -->
+<section id="about" class="py-24 lg:py-36 bg-cream overflow-hidden">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-14">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-28 items-center">
+
+      <!-- Image column -->
+      <div class="reveal-left relative">
+        <div class="relative overflow-hidden" style="aspect-ratio:3/4; max-height:680px;">
+          <img
+            src="img/SaveClip.App_662069388_17874446694576209_6439392325971294563_n.jpg"
+            alt="Open plan living Prima Design"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-forest/25 to-transparent pointer-events-none"></div>
+        </div>
+        <!-- Floating stat badge -->
+        <div class="absolute -bottom-7 -right-4 lg:-right-10 bg-forest py-7 px-8 hidden sm:block">
+          <div class="ctr leading-none">8+</div>
+          <div class="font-body text-cream/50 text-[9.5px] tracking-[0.28em] uppercase mt-2">Ani experiență</div>
+        </div>
+      </div>
+
+      <!-- Text column -->
+      <div class="reveal-right">
+        <div class="s-label mb-5">Despre Noi</div>
+        <h2 class="font-display text-charcoal font-light leading-tight mb-7"
+            style="font-size:clamp(2.1rem,4vw,3.4rem);">
+          Creăm Spații<br />care <em class="text-gold">Inspiră</em>
+        </h2>
+        <span class="g-line mb-8 block"></span>
+        <p class="font-body text-warm-gray font-light leading-relaxed mb-5 text-[0.95rem]">
+          La Prima Design Interior, credem că un interior bun nu este doar frumos — este funcțional, personal și durabil. Fiecare proiect este o colaborare strânsă cu clientul, pentru a înțelege stilul de viață, preferințele și viziunea fiecăruia.
+        </p>
+        <p class="font-body text-warm-gray font-light leading-relaxed mb-11 text-[0.95rem]">
+          De la conceptul inițial până la implementarea finală, echipa noastră dedicată garantează un rezultat impecabil — fiecare material, fiecare lumină, fiecare detaliu ales cu intenție.
+        </p>
+        <a href="#contact"
+           class="inline-block font-body text-[10.5px] tracking-[0.24em] uppercase px-8 py-4 border border-charcoal text-charcoal hover:bg-forest hover:text-cream hover:border-forest transition-all duration-350 font-medium">
+          Contactează-ne
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════════ -->
+<section id="services" class="py-24 lg:py-36 bg-forest-light">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-14">
+
+    <div class="text-center mb-16 reveal">
+      <div class="s-label mb-4">Ce Oferim</div>
+      <h2 class="font-display text-cream font-light"
+          style="font-size:clamp(2rem,4vw,3.5rem);">Servicii Premium</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- 01 -->
+      <div class="svc-card reveal d1 p-10 group">
+        <div class="text-gold mb-6 opacity-80">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Design Rezidențial</h3>
+        <div class="svc-bar mb-5 opacity-60 group-hover:opacity-100"></div>
+        <p class="font-body text-cream/45 font-light text-[13.5px] leading-relaxed">
+          De la apartamente la vile, creăm locuințe cu personalitate — spații în care trăiești cu plăcere și stil în fiecare zi.
+        </p>
+      </div>
+
+      <!-- 02 -->
+      <div class="svc-card reveal d2 p-10 group" style="background:rgba(197,165,90,0.04);">
+        <div class="text-gold mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Design Comercial</h3>
+        <div class="svc-bar mb-5"></div>
+        <p class="font-body text-cream/45 font-light text-[13.5px] leading-relaxed">
+          Birouri, restaurante, hoteluri — spații cu identitate vizuală puternică, gândite să atragă și să rețină.
+        </p>
+      </div>
+
+      <!-- 03 -->
+      <div class="svc-card reveal d3 p-10 group">
+        <div class="text-gold mb-6 opacity-80">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Consultanță & Concept</h3>
+        <div class="svc-bar mb-5 opacity-60 group-hover:opacity-100"></div>
+        <p class="font-body text-cream/45 font-light text-[13.5px] leading-relaxed">
+          Îndrumare profesională pentru cei care doresc o direcție clară — idei, palete de culori, selecție materiale.
+        </p>
+      </div>
+
+      <!-- 04 -->
+      <div class="svc-card reveal d1 p-10 group">
+        <div class="text-gold mb-6 opacity-80">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Vizualizare 3D</h3>
+        <div class="svc-bar mb-5 opacity-60 group-hover:opacity-100"></div>
+        <p class="font-body text-cream/45 font-light text-[13.5px] leading-relaxed">
+          Randări fotorealiste înainte de execuție — vedeți rezultatul final cu fiecare detaliu în loc.
+        </p>
+      </div>
+
+      <!-- 05 -->
+      <div class="svc-card reveal d2 p-10 group">
+        <div class="text-gold mb-6 opacity-80">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Design pe Comandă</h3>
+        <div class="svc-bar mb-5 opacity-60 group-hover:opacity-100"></div>
+        <p class="font-body text-cream/45 font-light text-[13.5px] leading-relaxed">
+          Mobilă și obiecte decorative create exclusiv pentru spațiul tău, din materiale premium atent selectate.
+        </p>
+      </div>
+
+      <!-- 06 -->
+      <div class="svc-card reveal d3 p-10 group">
+        <div class="text-gold mb-6 opacity-80">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Management Proiect</h3>
+        <div class="svc-bar mb-5 opacity-60 group-hover:opacity-100"></div>
+        <p class="font-body text-cream/45 font-light text-[13.5px] leading-relaxed">
+          Coordonăm toți furnizorii și meșteșugarii. Voi primiți un spațiu finalizat, fără stresul logisticii.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     PORTFOLIO
+════════════════════════════════════════════ -->
+<section id="portfolio" class="py-24 lg:py-36 bg-cream">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-14">
+
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-6">
+      <div class="reveal">
+        <div class="s-label mb-4">Portofoliu</div>
+        <h2 class="font-display text-charcoal font-light leading-tight"
+            style="font-size:clamp(2rem,4vw,3.4rem);">Proiectele Noastre</h2>
+      </div>
+      <a href="#contact" class="reveal d2 self-start sm:self-auto font-body text-[10.5px] tracking-[0.24em] uppercase px-6 py-3 border border-charcoal/30 text-charcoal hover:bg-forest hover:text-cream hover:border-forest transition-all duration-300 whitespace-nowrap">
+        Toate Proiectele
+      </a>
+    </div>
+
+    <!-- Masonry-style editorial grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+
+      <!-- Tall left — spans 2 rows on large -->
+      <div class="port-item reveal relative lg:row-span-2 bg-charcoal" style="min-height:480px;">
+        <img
+          src="img/SaveClip.App_653404567_17870631498576209_2248773129634800706_n.jpg"
+          alt="Dark contemporary living room"
+          class="w-full h-full object-cover absolute inset-0"
+          style="min-height:480px;"
+        />
+        <div class="cap absolute inset-0 bg-gradient-to-t from-forest/92 via-forest/30 to-transparent flex flex-col justify-end p-8">
+          <div class="s-label mb-2">Living Room</div>
+          <h3 class="font-display text-cream text-2xl font-light">Contemporary Dark</h3>
+          <span class="g-line mt-3 opacity-70"></span>
+        </div>
+      </div>
+
+      <!-- Top middle -->
+      <div class="port-item reveal d1 relative bg-cream-dark" style="min-height:265px;">
+        <img
+          src="img/SaveClip.App_694770533_17880946434576209_5030198813733435627_n.jpg"
+          alt="Kitchen design"
+          class="w-full h-full object-cover absolute inset-0"
+          style="min-height:265px;"
+        />
+        <div class="cap absolute inset-0 bg-gradient-to-t from-forest/88 to-transparent flex flex-col justify-end p-6">
+          <div class="s-label mb-1">Bucătărie</div>
+          <h3 class="font-display text-cream text-xl font-light">Warm Kitchen</h3>
+        </div>
+      </div>
+
+      <!-- Top right -->
+      <div class="port-item reveal d2 relative bg-cream-dark" style="min-height:265px;">
+        <img
+          src="img/SaveClip.App_696292137_17880946443576209_8919376669024307117_n.jpg"
+          alt="Master bedroom"
+          class="w-full h-full object-cover absolute inset-0"
+          style="min-height:265px;"
+        />
+        <div class="cap absolute inset-0 bg-gradient-to-t from-forest/88 to-transparent flex flex-col justify-end p-6">
+          <div class="s-label mb-1">Dormitor</div>
+          <h3 class="font-display text-cream text-xl font-light">Master Suite</h3>
+        </div>
+      </div>
+
+      <!-- Bottom middle -->
+      <div class="port-item reveal d1 relative bg-cream-dark" style="min-height:265px;">
+        <img
+          src="img/SaveClip.App_653675517_17870631489576209_9150127564477414525_n.jpg"
+          alt="Corridor / hallway"
+          class="w-full h-full object-cover absolute inset-0"
+          style="min-height:265px;"
+        />
+        <div class="cap absolute inset-0 bg-gradient-to-t from-forest/88 to-transparent flex flex-col justify-end p-6">
+          <div class="s-label mb-1">Hol</div>
+          <h3 class="font-display text-cream text-xl font-light">Dramatic Entrance</h3>
+        </div>
+      </div>
+
+      <!-- Bottom right -->
+      <div class="port-item reveal d2 relative bg-cream-dark" style="min-height:265px;">
+        <img
+          src="img/SaveClip.App_696139215_17880946452576209_5271844858163455456_n.jpg"
+          alt="Wood bedroom"
+          class="w-full h-full object-cover absolute inset-0"
+          style="min-height:265px;"
+        />
+        <div class="cap absolute inset-0 bg-gradient-to-t from-forest/88 to-transparent flex flex-col justify-end p-6">
+          <div class="s-label mb-1">Dormitor</div>
+          <h3 class="font-display text-cream text-xl font-light">Wood Elegance</h3>
+        </div>
+      </div>
+
+      <!-- Full-width panoramic -->
+      <div class="port-item reveal md:col-span-2 lg:col-span-3 relative bg-charcoal" style="min-height:380px;">
+        <img
+          src="img/SaveClip.App_662069388_17874446694576209_6439392325971294563_n.jpg"
+          alt="Open plan living and dining"
+          class="w-full h-full object-cover absolute inset-0"
+          style="min-height:380px;"
+        />
+        <div class="cap absolute inset-0 bg-gradient-to-r from-forest/90 via-forest/25 to-transparent flex items-end p-10">
+          <div>
+            <div class="s-label mb-2">Open Plan</div>
+            <h3 class="font-display text-cream text-3xl font-light">Bright Contemporary Living & Dining</h3>
+            <span class="g-line mt-3 opacity-70 block transition-all duration-500"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     STATS
+════════════════════════════════════════════ -->
+<section class="py-24 bg-forest">
+  <div class="max-w-5xl mx-auto px-6 lg:px-14">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+      <div class="reveal">
+        <div class="ctr" data-target="120">0</div>
+        <div class="font-body text-cream/45 text-[10px] tracking-[0.28em] uppercase mt-3">Proiecte Finalizate</div>
+      </div>
+      <div class="reveal d1">
+        <div class="ctr" data-target="8">0</div>
+        <div class="font-body text-cream/45 text-[10px] tracking-[0.28em] uppercase mt-3">Ani Experiență</div>
+      </div>
+      <div class="reveal d2">
+        <div class="ctr" data-target="98" data-suffix="%">0</div>
+        <div class="font-body text-cream/45 text-[10px] tracking-[0.28em] uppercase mt-3">Clienți Mulțumiți</div>
+      </div>
+      <div class="reveal d3">
+        <div class="ctr" data-target="15">0</div>
+        <div class="font-body text-cream/45 text-[10px] tracking-[0.28em] uppercase mt-3">Orașe Servite</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     PROCESS
+════════════════════════════════════════════ -->
+<section id="process" class="py-24 lg:py-36 bg-cream-dark">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-14">
+
+    <div class="text-center mb-20 reveal">
+      <div class="s-label mb-4">Cum Lucrăm</div>
+      <h2 class="font-display text-charcoal font-light"
+          style="font-size:clamp(2rem,4vw,3.4rem);">Procesul Nostru</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <div class="proc-card reveal">
+        <div class="proc-num">01</div>
+        <span class="g-line my-5 block opacity-70"></span>
+        <h3 class="font-display text-charcoal text-2xl font-light mb-3">Consultație</h3>
+        <p class="font-body text-warm-gray font-light text-[13.5px] leading-relaxed">Discutăm viziunea, bugetul și termenele. Analizăm spațiul și colectăm toate datele necesare pentru un proiect de succes.</p>
+      </div>
+
+      <div class="proc-card reveal d1">
+        <div class="proc-num">02</div>
+        <span class="g-line my-5 block opacity-70"></span>
+        <h3 class="font-display text-charcoal text-2xl font-light mb-3">Concept & Design</h3>
+        <p class="font-body text-warm-gray font-light text-[13.5px] leading-relaxed">Creăm conceptul cu planuri 2D/3D, palete de culori și materiale premium, prezentate pentru aprobarea dvs.</p>
+      </div>
+
+      <div class="proc-card reveal d2">
+        <div class="proc-num">03</div>
+        <span class="g-line my-5 block opacity-70"></span>
+        <h3 class="font-display text-charcoal text-2xl font-light mb-3">Execuție</h3>
+        <p class="font-body text-warm-gray font-light text-[13.5px] leading-relaxed">Coordonăm lucrările, furnizorii și meșterii cu precizie. Monitorizăm fiecare etapă a implementării în timp real.</p>
+      </div>
+
+      <div class="proc-card reveal d3">
+        <div class="proc-num">04</div>
+        <span class="g-line my-5 block opacity-70"></span>
+        <h3 class="font-display text-charcoal text-2xl font-light mb-3">Predare</h3>
+        <p class="font-body text-warm-gray font-light text-[13.5px] leading-relaxed">Predarea spațiului finalizat, inspecție finală detaliată și asistență post-livrare inclusă în fiecare proiect.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════ -->
+<section class="py-24 lg:py-36 bg-forest relative overflow-hidden">
+  <!-- Faint BG texture -->
+  <div class="absolute inset-0 opacity-8 pointer-events-none">
+    <img src="img/SaveClip.App_698324778_17880946464576209_3524876757430767661_n.jpg"
+         alt="" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-forest/80"></div>
+  </div>
+
+  <div class="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-14">
+    <div class="text-center mb-16 reveal">
+      <div class="s-label mb-4">Testimoniale</div>
+      <h2 class="font-display text-cream font-light"
+          style="font-size:clamp(2rem,4vw,3.4rem);">Ce Spun Clienții</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="reveal d1 border border-cream/10 p-9">
+        <div class="font-display text-gold text-6xl font-light leading-none mb-5 opacity-35">"</div>
+        <p class="font-body text-cream/65 font-light leading-relaxed text-[13.5px] italic mb-8">
+          Prima Design a transformat complet apartamentul nostru. Rezultatul a depășit cu mult așteptările — un spațiu rafinat și perfect funcțional în același timp.
+        </p>
+        <div class="flex items-center gap-3 pt-5 border-t border-cream/10">
+          <div class="w-9 h-9 rounded-full bg-gold/15 flex items-center justify-center font-display text-gold text-lg font-light flex-shrink-0">A</div>
+          <div>
+            <div class="font-body text-cream text-sm font-medium">Alexandru M.</div>
+            <div class="font-body text-cream/35 text-[11px] tracking-wider">Chișinău</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d2 border border-gold/18 p-9" style="background:rgba(197,165,90,0.04);">
+        <div class="font-display text-gold text-6xl font-light leading-none mb-5 opacity-55">"</div>
+        <p class="font-body text-cream/65 font-light leading-relaxed text-[13.5px] italic mb-8">
+          Profesionalism la cel mai înalt nivel. Au ascultat fiecare dorință și au livrat exact ce am visat pentru casa noastră. Vom colabora cu siguranță și la viitoarele proiecte.
+        </p>
+        <div class="flex items-center gap-3 pt-5 border-t border-cream/10">
+          <div class="w-9 h-9 rounded-full bg-gold/15 flex items-center justify-center font-display text-gold text-lg font-light flex-shrink-0">M</div>
+          <div>
+            <div class="font-body text-cream text-sm font-medium">Maria & Ion P.</div>
+            <div class="font-body text-cream/35 text-[11px] tracking-wider">Bălți</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d3 border border-cream/10 p-9">
+        <div class="font-display text-gold text-6xl font-light leading-none mb-5 opacity-35">"</div>
+        <p class="font-body text-cream/65 font-light leading-relaxed text-[13.5px] italic mb-8">
+          Am colaborat pentru designul biroului nostru și suntem uimiți de rezultat. Clienții noștri ne complimentează constant pentru ambianța spațiului.
+        </p>
+        <div class="flex items-center gap-3 pt-5 border-t border-cream/10">
+          <div class="w-9 h-9 rounded-full bg-gold/15 flex items-center justify-center font-display text-gold text-lg font-light flex-shrink-0">V</div>
+          <div>
+            <div class="font-body text-cream text-sm font-medium">Vasile C.</div>
+            <div class="font-body text-cream/35 text-[11px] tracking-wider">Chișinău</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     IMAGE STRIP
+════════════════════════════════════════════ -->
+<div class="flex overflow-hidden" style="height:280px;">
+  <div class="flex-1 overflow-hidden"><img src="img/SaveClip.App_660292093_17874446718576209_6367631657596150030_n.jpg" alt="" class="w-full h-full object-cover img-lift" /></div>
+  <div class="flex-1 overflow-hidden"><img src="img/SaveClip.App_661453592_17874446721576209_2010423922960942698_n.jpg" alt="" class="w-full h-full object-cover img-lift" /></div>
+  <div class="flex-1 overflow-hidden"><img src="img/SaveClip.App_661595357_17874446709576209_8910298188296081862_n.jpg" alt="" class="w-full h-full object-cover img-lift" /></div>
+  <div class="flex-1 overflow-hidden hidden md:block"><img src="img/SaveClip.App_660444626_17874446730576209_4012660857873006705_n.jpg" alt="" class="w-full h-full object-cover img-lift" /></div>
+  <div class="flex-1 overflow-hidden hidden lg:block"><img src="img/SaveClip.App_655285672_17870631507576209_3952810920418502037_n.jpg" alt="" class="w-full h-full object-cover img-lift" /></div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════ -->
+<section id="contact" class="py-24 lg:py-36 bg-forest relative overflow-hidden">
+  <!-- Decorative gold vertical -->
+  <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/15 to-transparent hidden lg:block pointer-events-none"></div>
+
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-14">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-28">
+
+      <!-- Info -->
+      <div class="reveal-left">
+        <div class="s-label mb-5">Contact</div>
+        <h2 class="font-display text-cream font-light leading-tight mb-7"
+            style="font-size:clamp(2rem,4vw,3.4rem);">
+          Să Discutăm<br />
+          Proiectul Tău
+        </h2>
+        <span class="g-line mb-9 block"></span>
+        <p class="font-body text-cream/55 font-light leading-relaxed mb-12 text-[0.93rem]">
+          Fie că ai un spațiu gol sau vrei să reîmprospătezi un interior existent, suntem gata să transformăm viziunea ta în realitate. Prima consultație este gratuită și fără obligații.
+        </p>
+
+        <div class="space-y-7">
+          <div class="flex items-start gap-4">
+            <div class="text-gold flex-shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01-.07 1.18 2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="font-body text-cream/35 text-[10px] tracking-[0.28em] uppercase mb-1">Telefon</div>
+              <a href="tel:+37360123456" class="font-body text-cream text-sm hover:text-gold transition-colors">+373 60 123 456</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="text-gold flex-shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="font-body text-cream/35 text-[10px] tracking-[0.28em] uppercase mb-1">Email</div>
+              <a href="mailto:contact@primadesign.md" class="font-body text-cream text-sm hover:text-gold transition-colors">contact@primadesign.md</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="text-gold flex-shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="font-body text-cream/35 text-[10px] tracking-[0.28em] uppercase mb-1">Locație</div>
+              <span class="font-body text-cream text-sm">Chișinău, Republica Moldova</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="text-gold flex-shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <div class="font-body text-cream/35 text-[10px] tracking-[0.28em] uppercase mb-1">Instagram</div>
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="font-body text-cream text-sm hover:text-gold transition-colors">@primadesign.interior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="reveal-right">
+        <form id="contact-form" novalidate>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+            <div>
+              <label class="font-body text-cream/38 text-[10px] tracking-[0.28em] uppercase block mb-3">Nume *</label>
+              <input type="text" name="name" placeholder="Numele dvs." class="f-input" required />
+            </div>
+            <div>
+              <label class="font-body text-cream/38 text-[10px] tracking-[0.28em] uppercase block mb-3">Telefon *</label>
+              <input type="tel" name="phone" placeholder="+373 __ ___ ___" class="f-input" required />
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <label class="font-body text-cream/38 text-[10px] tracking-[0.28em] uppercase block mb-3">Email *</label>
+            <input type="email" name="email" placeholder="email@exemplu.com" class="f-input" required />
+          </div>
+
+          <div class="mb-8">
+            <label class="font-body text-cream/38 text-[10px] tracking-[0.28em] uppercase block mb-3">Tipul Spațiului</label>
+            <select name="space_type" class="f-input appearance-none cursor-pointer">
+              <option value="" disabled selected>Selectați tipul spațiului...</option>
+              <option value="apartment">Apartament</option>
+              <option value="house">Casă / Vilă</option>
+              <option value="office">Birou</option>
+              <option value="commercial">Spațiu Comercial</option>
+              <option value="other">Altele</option>
+            </select>
+          </div>
+
+          <div class="mb-10">
+            <label class="font-body text-cream/38 text-[10px] tracking-[0.28em] uppercase block mb-3">Mesaj</label>
+            <textarea name="message" rows="5" placeholder="Descrieți proiectul — suprafața, bugetul estimat, viziunea dvs...." class="f-input resize-none"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit w-full font-body text-[10.5px] tracking-[0.3em] uppercase py-5 bg-gold text-forest hover:bg-gold-light transition-all duration-300 font-medium">
+            Trimite Cererea
+          </button>
+
+          <div id="form-msg" class="hidden mt-6 py-5 border border-gold/30 text-center">
+            <p class="font-display text-gold text-xl font-light">Mulțumim!</p>
+            <p class="font-body text-cream/55 text-sm mt-1.5">Vă vom contacta în cel mai scurt timp posibil.</p>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="bg-charcoal py-16 px-6 lg:px-14">
+  <div class="max-w-screen-xl mx-auto">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-cream/8">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full overflow-hidden ring-1 ring-gold/20">
+            <img src="img/logo.jpg" alt="Prima Design" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <div class="font-display text-cream text-[1rem] font-light">Prima Design</div>
+            <div class="s-label text-[8.5px] mt-0.5">Interior</div>
+          </div>
+        </div>
+        <p class="font-body text-cream/38 font-light text-[13px] leading-relaxed">
+          Studio de design interior premium. Chișinău, Republica Moldova.
+        </p>
+      </div>
+
+      <!-- Servicii -->
+      <div>
+        <h4 class="font-body text-cream/40 text-[10px] tracking-[0.28em] uppercase mb-5">Servicii</h4>
+        <ul class="space-y-3">
+          <li><a href="#services" class="font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">Design Rezidențial</a></li>
+          <li><a href="#services" class="font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">Design Comercial</a></li>
+          <li><a href="#services" class="font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">Consultanță</a></li>
+          <li><a href="#services" class="font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">Vizualizare 3D</a></li>
+          <li><a href="#services" class="font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">Management Proiect</a></li>
+        </ul>
+      </div>
+
+      <!-- Navigare -->
+      <div>
+        <h4 class="font-body text-cream/40 text-[10px] tracking-[0.28em] uppercase mb-5">Navigare</h4>
+        <ul class="space-y-3">
+          <li><a href="#about"     class="font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">Despre Noi</a></li>
+          <li><a href="#portfolio" class="font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">Portofoliu</a></li>
+          <li><a href="#process"   class="font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">Proces</a></li>
+          <li><a href="#contact"   class="font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-body text-cream/40 text-[10px] tracking-[0.28em] uppercase mb-5">Contact</h4>
+        <div class="space-y-3">
+          <p class="font-body text-cream/65 text-[13px] font-light">Chișinău, Moldova</p>
+          <a href="tel:+37360123456"           class="block font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">+373 60 123 456</a>
+          <a href="mailto:contact@primadesign.md" class="block font-body text-cream/65 hover:text-gold text-[13px] font-light transition-colors">contact@primadesign.md</a>
+          <div class="flex gap-4 pt-2">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="text-cream/35 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="text-cream/35 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pt-7 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="font-body text-cream/25 text-[11px]">© 2025 Prima Design Interior. Toate drepturile rezervate.</p>
+      <p class="font-body text-cream/25 text-[11px]">Design cu <span class="text-gold">◆</span> în Chișinău</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+  // ── Navbar scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 70);
+  }, { passive: true });
+
+  // ── Mobile menu ──
+  const hamBtn = document.getElementById('ham-btn');
+  const mobMenu = document.getElementById('mob-menu');
+  const hb1 = document.getElementById('hb1');
+  const hb2 = document.getElementById('hb2');
+  const hb3 = document.getElementById('hb3');
+  let menuOpen = false;
+
+  function toggleMenu(force) {
+    menuOpen = typeof force === 'boolean' ? force : !menuOpen;
+    mobMenu.classList.toggle('open', menuOpen);
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    hb1.style.cssText = menuOpen ? 'transform:rotate(45deg) translate(4px,4px)' : '';
+    hb2.style.cssText = menuOpen ? 'opacity:0' : '';
+    hb3.style.cssText = menuOpen ? 'transform:rotate(-45deg) translate(4px,-4px)' : '';
+  }
+
+  hamBtn.addEventListener('click', () => toggleMenu());
+  document.querySelectorAll('.mob-link').forEach(el =>
+    el.addEventListener('click', () => toggleMenu(false))
+  );
+
+  // ── Scroll reveal ──
+  const revEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -55px 0px' });
+  revEls.forEach(el => revObs.observe(el));
+
+  // ── Counter animation ──
+  const counters = document.querySelectorAll('.ctr[data-target]');
+  const ctrObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el  = e.target;
+      const end = parseInt(el.dataset.target);
+      const suf = el.dataset.suffix || '+';
+      let cur = 0;
+      const step = end / 65;
+      const tick = () => {
+        cur = Math.min(cur + step, end);
+        el.textContent = Math.floor(cur) + suf;
+        if (cur < end) requestAnimationFrame(tick);
+        else el.textContent = end + suf;
+      };
+      requestAnimationFrame(tick);
+      ctrObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => ctrObs.observe(c));
+
+  // ── Contact form ──
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type=submit]');
+    btn.textContent = 'Se trimite...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('form-msg').classList.remove('hidden');
+      this.reset();
+      btn.textContent = 'Trimis ✓';
+    }, 1400);
+  });
+</script>
+
+</body>
+</html>
