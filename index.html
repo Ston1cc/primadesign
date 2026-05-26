@@ -258,7 +258,7 @@
       <div class="w-10 h-10 rounded-full overflow-hidden ring-1 ring-gold/25 group-hover:ring-gold/55 transition-all duration-300 flex-shrink-0">
         <img src="img/logo.jpg" alt="Prima Design" class="w-full h-full object-cover" />
       </div>
-      <span class="hidden sm:block font-body text-cream text-[11px] tracking-[0.26em] uppercase font-light">Prima Design Interior</span>
+      <span id="logo-text" class="hidden sm:block font-body text-cream text-[11px] tracking-[0.26em] uppercase font-light opacity-0 transition-opacity duration-400">Prima Design Interior</span>
     </a>
 
     <!-- Desktop links -->
@@ -975,9 +975,12 @@
 ════════════════════════════════════════════ -->
 <script>
   // ── Navbar scroll ──
-  const navbar = document.getElementById('navbar');
+  const navbar    = document.getElementById('navbar');
+  const logoText  = document.getElementById('logo-text');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 70);
+    const scrolled = window.scrollY > 70;
+    navbar.classList.toggle('scrolled', scrolled);
+    logoText.style.opacity = scrolled ? '1' : '0';
   }, { passive: true });
 
   // ── Mobile menu ──
