@@ -154,7 +154,7 @@
       border-bottom: 1px solid rgba(197,165,90,0.3);
       color: var(--cream);
       font-family: 'Jost', sans-serif;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 300;
       letter-spacing: 0.04em;
       padding: 12px 0;
@@ -236,7 +236,7 @@
     /* Process number */
     .proc-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 7rem;
+      font-size: clamp(4rem, 10vw, 7rem);
       font-weight: 300;
       line-height: 1;
       color: rgba(197,165,90,0.13);
@@ -275,7 +275,7 @@
     </a>
 
     <!-- Hamburger -->
-    <button id="ham-btn" class="lg:hidden p-2 flex flex-col gap-[5px]" aria-label="Meniu">
+    <button id="ham-btn" class="lg:hidden p-3 flex flex-col gap-[5px]" aria-label="Meniu">
       <span id="hb1" class="block w-6 h-px bg-cream transition-all duration-300 origin-center"></span>
       <span id="hb2" class="block w-4 h-px bg-gold  transition-all duration-300"></span>
       <span id="hb3" class="block w-6 h-px bg-cream transition-all duration-300 origin-center"></span>
@@ -318,23 +318,23 @@
   <!-- Content -->
   <div class="relative z-10 w-full max-w-screen-xl mx-auto px-6 lg:px-14">
     <div class="max-w-2xl">
-      <h1 class="font-display text-cream font-light leading-[0.93]" style="font-size:clamp(3.4rem,8.5vw,7.5rem);">
+      <h1 class="font-display text-cream font-light leading-[0.93]" style="font-size:clamp(2.4rem,8.5vw,7.5rem);">
         <span class="hero-word block" style="animation-delay:0.3s">Unde</span>
         <span class="hero-word block italic text-gold-light" style="animation-delay:0.58s">Viziunea</span>
         <span class="hero-word block" style="animation-delay:0.71s">Întâlnește</span>
         <span class="hero-word block" style="animation-delay:0.84s">Măiestria</span>
       </h1>
 
-      <p class="hero-word font-body text-cream/65 font-light leading-relaxed mt-8 mb-10 max-w-sm"
-         style="animation-delay:1s; font-size:clamp(0.88rem,1.4vw,1rem);">
+      <p class="hero-word font-body text-cream/65 font-light leading-relaxed mt-6 mb-8 max-w-sm"
+         style="animation-delay:1s; font-size:clamp(0.9rem,1.4vw,1rem);">
         Transformăm spații în experiențe unice. Design interior de lux, adaptat fiecărui client în fiecare detaliu.
       </p>
 
-      <div class="hero-word flex flex-wrap gap-4" style="animation-delay:1.15s">
-        <a href="#portfolio" class="font-body text-[10.5px] tracking-[0.25em] uppercase px-8 py-4 bg-gold text-forest hover:bg-gold-light transition-all duration-300 font-medium">
+      <div class="hero-word flex flex-col sm:flex-row gap-3" style="animation-delay:1.15s">
+        <a href="#portfolio" class="font-body text-[10.5px] tracking-[0.25em] uppercase px-8 py-4 bg-gold text-forest hover:bg-gold-light transition-all duration-300 font-medium text-center">
           Proiectele Noastre
         </a>
-        <a href="#contact" class="font-body text-[10.5px] tracking-[0.25em] uppercase px-8 py-4 bg-cream text-forest hover:bg-gold hover:text-forest transition-all duration-300 font-semibold">
+        <a href="#contact" class="font-body text-[10.5px] tracking-[0.25em] uppercase px-8 py-4 bg-cream text-forest hover:bg-gold hover:text-forest transition-all duration-300 font-semibold text-center">
           Consultație Gratuită
         </a>
       </div>
@@ -354,7 +354,7 @@
 <!-- ════════════════════════════════════════════
      EDITORIAL QUOTE
 ════════════════════════════════════════════ -->
-<section class="py-24 bg-cream overflow-hidden">
+<section class="py-14 md:py-24 bg-cream overflow-hidden">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <div class="reveal">
       <p class="font-display text-charcoal font-light leading-tight"
@@ -373,13 +373,13 @@
 <!-- ════════════════════════════════════════════
      ABOUT
 ════════════════════════════════════════════ -->
-<section id="about" class="py-24 lg:py-36 bg-cream overflow-hidden">
+<section id="about" class="py-14 lg:py-36 bg-cream overflow-hidden">
   <div class="max-w-screen-xl mx-auto px-6 lg:px-14">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-28 items-center">
 
       <!-- Image column -->
       <div class="reveal-left relative">
-        <div class="relative overflow-hidden" style="aspect-ratio:3/4; max-height:680px;">
+        <div class="relative overflow-hidden" style="aspect-ratio:3/4; max-height:480px;">
           <img
             src="img/SaveClip.App_662069388_17874446694576209_6439392325971294563_n.jpg"
             alt="Open plan living Prima Design"
@@ -421,7 +421,7 @@
 <!-- ════════════════════════════════════════════
      SERVICES
 ════════════════════════════════════════════ -->
-<section id="services" class="py-24 lg:py-36 bg-forest-light">
+<section id="services" class="py-14 lg:py-36 bg-forest-light">
   <div class="max-w-screen-xl mx-auto px-6 lg:px-14">
 
     <div class="text-center mb-16 reveal">
@@ -433,8 +433,8 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
       <!-- 01 -->
-      <div class="svc-card reveal d1 p-10 group">
-        <div class="text-gold mb-6 opacity-80">
+      <div class="svc-card reveal d1 p-7 lg:p-10 group">
+        <div class="text-gold mb-5 opacity-80">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Design Rezidențial</h3>
@@ -445,8 +445,8 @@
       </div>
 
       <!-- 02 -->
-      <div class="svc-card reveal d2 p-10 group" style="background:rgba(197,165,90,0.04);">
-        <div class="text-gold mb-6">
+      <div class="svc-card reveal d2 p-7 lg:p-10 group" style="background:rgba(197,165,90,0.04);">
+        <div class="text-gold mb-5">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
         <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Design Comercial</h3>
@@ -457,8 +457,8 @@
       </div>
 
       <!-- 03 -->
-      <div class="svc-card reveal d3 p-10 group">
-        <div class="text-gold mb-6 opacity-80">
+      <div class="svc-card reveal d3 p-7 lg:p-10 group">
+        <div class="text-gold mb-5 opacity-80">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
         </div>
         <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Consultanță & Concept</h3>
@@ -493,8 +493,8 @@
       </div>
 
       <!-- 06 -->
-      <div class="svc-card reveal d3 p-10 group">
-        <div class="text-gold mb-6 opacity-80">
+      <div class="svc-card reveal d3 p-7 lg:p-10 group">
+        <div class="text-gold mb-5 opacity-80">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
         <h3 class="font-display text-cream text-[1.5rem] font-light mb-3 group-hover:text-gold transition-colors duration-300">Management Proiect</h3>
@@ -512,7 +512,7 @@
 <!-- ════════════════════════════════════════════
      PORTFOLIO
 ════════════════════════════════════════════ -->
-<section id="portfolio" class="py-24 lg:py-36 bg-cream">
+<section id="portfolio" class="py-14 lg:py-36 bg-cream">
   <div class="max-w-screen-xl mx-auto px-6 lg:px-14">
 
     <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-6">
@@ -530,12 +530,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
 
       <!-- Tall left — spans 2 rows on large -->
-      <div class="port-item reveal relative lg:row-span-2 bg-charcoal" style="min-height:480px;">
+      <div class="port-item reveal relative lg:row-span-2 bg-charcoal" style="min-height:280px;">
         <img
           src="img/SaveClip.App_653404567_17870631498576209_2248773129634800706_n.jpg"
           alt="Dark contemporary living room"
           class="w-full h-full object-cover absolute inset-0"
-          style="min-height:480px;"
+          style="min-height:280px;"
         />
         <div class="cap absolute inset-0 bg-gradient-to-t from-forest/92 via-forest/30 to-transparent flex flex-col justify-end p-8">
           <div class="s-label mb-2">Living Room</div>
@@ -545,12 +545,12 @@
       </div>
 
       <!-- Top middle -->
-      <div class="port-item reveal d1 relative bg-cream-dark" style="min-height:265px;">
+      <div class="port-item reveal d1 relative bg-cream-dark" style="min-height:220px;">
         <img
           src="img/SaveClip.App_694770533_17880946434576209_5030198813733435627_n.jpg"
           alt="Kitchen design"
           class="w-full h-full object-cover absolute inset-0"
-          style="min-height:265px;"
+          style="min-height:220px;"
         />
         <div class="cap absolute inset-0 bg-gradient-to-t from-forest/88 to-transparent flex flex-col justify-end p-6">
           <div class="s-label mb-1">Bucătărie</div>
@@ -559,12 +559,12 @@
       </div>
 
       <!-- Top right -->
-      <div class="port-item reveal d2 relative bg-cream-dark" style="min-height:265px;">
+      <div class="port-item reveal d2 relative bg-cream-dark" style="min-height:220px;">
         <img
           src="img/SaveClip.App_696292137_17880946443576209_8919376669024307117_n.jpg"
           alt="Master bedroom"
           class="w-full h-full object-cover absolute inset-0"
-          style="min-height:265px;"
+          style="min-height:220px;"
         />
         <div class="cap absolute inset-0 bg-gradient-to-t from-forest/88 to-transparent flex flex-col justify-end p-6">
           <div class="s-label mb-1">Dormitor</div>
@@ -573,12 +573,12 @@
       </div>
 
       <!-- Bottom middle -->
-      <div class="port-item reveal d1 relative bg-cream-dark" style="min-height:265px;">
+      <div class="port-item reveal d1 relative bg-cream-dark" style="min-height:220px;">
         <img
           src="img/SaveClip.App_653675517_17870631489576209_9150127564477414525_n.jpg"
           alt="Corridor / hallway"
           class="w-full h-full object-cover absolute inset-0"
-          style="min-height:265px;"
+          style="min-height:220px;"
         />
         <div class="cap absolute inset-0 bg-gradient-to-t from-forest/88 to-transparent flex flex-col justify-end p-6">
           <div class="s-label mb-1">Hol</div>
@@ -587,12 +587,12 @@
       </div>
 
       <!-- Bottom right -->
-      <div class="port-item reveal d2 relative bg-cream-dark" style="min-height:265px;">
+      <div class="port-item reveal d2 relative bg-cream-dark" style="min-height:220px;">
         <img
           src="img/SaveClip.App_696139215_17880946452576209_5271844858163455456_n.jpg"
           alt="Wood bedroom"
           class="w-full h-full object-cover absolute inset-0"
-          style="min-height:265px;"
+          style="min-height:220px;"
         />
         <div class="cap absolute inset-0 bg-gradient-to-t from-forest/88 to-transparent flex flex-col justify-end p-6">
           <div class="s-label mb-1">Dormitor</div>
@@ -601,7 +601,7 @@
       </div>
 
       <!-- Full-width panoramic -->
-      <div class="port-item reveal md:col-span-2 lg:col-span-3 relative bg-charcoal" style="min-height:380px;">
+      <div class="port-item reveal md:col-span-2 lg:col-span-3 relative bg-charcoal" style="min-height:260px;">
         <img
           src="img/SaveClip.App_662069388_17874446694576209_6439392325971294563_n.jpg"
           alt="Open plan living and dining"
@@ -625,7 +625,7 @@
 <!-- ════════════════════════════════════════════
      STATS
 ════════════════════════════════════════════ -->
-<section class="py-24 bg-forest">
+<section class="py-14 md:py-24 bg-forest">
   <div class="max-w-5xl mx-auto px-6 lg:px-14">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 text-center">
       <div class="reveal">
@@ -652,7 +652,7 @@
 <!-- ════════════════════════════════════════════
      PROCESS
 ════════════════════════════════════════════ -->
-<section id="process" class="py-24 lg:py-36 bg-cream-dark">
+<section id="process" class="py-14 lg:py-36 bg-cream-dark">
   <div class="max-w-screen-xl mx-auto px-6 lg:px-14">
 
     <div class="text-center mb-20 reveal">
@@ -699,7 +699,7 @@
 <!-- ════════════════════════════════════════════
      TESTIMONIALS
 ════════════════════════════════════════════ -->
-<section class="py-24 lg:py-36 bg-forest relative overflow-hidden">
+<section class="py-14 lg:py-36 bg-forest relative overflow-hidden">
   <!-- Faint BG texture -->
   <div class="absolute inset-0 opacity-8 pointer-events-none">
     <img src="img/SaveClip.App_698324778_17880946464576209_3524876757430767661_n.jpg"
@@ -716,7 +716,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-      <div class="reveal d1 border border-cream/10 p-9">
+      <div class="reveal d1 border border-cream/10 p-7 lg:p-9">
         <div class="font-display text-gold text-6xl font-light leading-none mb-5 opacity-35">"</div>
         <p class="font-body text-cream/65 font-light leading-relaxed text-[13.5px] italic mb-8">
           Prima Design a transformat complet apartamentul nostru. Rezultatul a depășit cu mult așteptările — un spațiu rafinat și perfect funcțional în același timp.
@@ -730,7 +730,7 @@
         </div>
       </div>
 
-      <div class="reveal d2 border border-gold/18 p-9" style="background:rgba(197,165,90,0.04);">
+      <div class="reveal d2 border border-gold/18 p-7 lg:p-9" style="background:rgba(197,165,90,0.04);">
         <div class="font-display text-gold text-6xl font-light leading-none mb-5 opacity-55">"</div>
         <p class="font-body text-cream/65 font-light leading-relaxed text-[13.5px] italic mb-8">
           Profesionalism la cel mai înalt nivel. Au ascultat fiecare dorință și au livrat exact ce am visat pentru casa noastră. Vom colabora cu siguranță și la viitoarele proiecte.
@@ -744,7 +744,7 @@
         </div>
       </div>
 
-      <div class="reveal d3 border border-cream/10 p-9">
+      <div class="reveal d3 border border-cream/10 p-7 lg:p-9">
         <div class="font-display text-gold text-6xl font-light leading-none mb-5 opacity-35">"</div>
         <p class="font-body text-cream/65 font-light leading-relaxed text-[13.5px] italic mb-8">
           Am colaborat pentru designul biroului nostru și suntem uimiți de rezultat. Clienții noștri ne complimentează constant pentru ambianța spațiului.
@@ -778,7 +778,7 @@
 <!-- ════════════════════════════════════════════
      CONTACT
 ════════════════════════════════════════════ -->
-<section id="contact" class="py-24 lg:py-36 bg-forest relative overflow-hidden">
+<section id="contact" class="py-14 lg:py-36 bg-forest relative overflow-hidden">
   <!-- Decorative gold vertical -->
   <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/15 to-transparent hidden lg:block pointer-events-none"></div>
 
